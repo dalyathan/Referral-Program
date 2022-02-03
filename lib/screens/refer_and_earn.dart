@@ -1,5 +1,6 @@
-import 'package:dribbble_mahmudul_hasan_manik_referral_program/style.dart';
-import 'package:dribbble_mahmudul_hasan_manik_referral_program/widgets/containers/custom_app_bar.dart';
+import '../style.dart';
+import '../widgets/containers/common/custom_app_bar.dart';
+import '../widgets/containers/refer_and_earn/select_date.dart';
 import 'package:flutter/material.dart';
 
 class ReferAndEarn extends StatelessWidget {
@@ -10,6 +11,10 @@ class ReferAndEarn extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     double effectiveContentWidth =
         size.width * (1 - 2 * MyStyle.horizontalPaddingRatio);
+    double selectDateHeightRatio = 0.1;
+    SizedBox spacer = SizedBox(
+      height: 0.025 * size.height,
+    );
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -22,7 +27,12 @@ class ReferAndEarn extends StatelessWidget {
               CustomAppBar(
                   title: "Refer & earn",
                   height: size.height * MyStyle.appBarHeightRatio,
-                  width: effectiveContentWidth)
+                  width: effectiveContentWidth),
+              spacer,
+              SelectDate(
+                height: size.height * selectDateHeightRatio,
+                width: effectiveContentWidth,
+              )
             ],
           ),
         ),
