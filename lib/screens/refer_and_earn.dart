@@ -1,3 +1,5 @@
+import '../widgets/containers/refer_and_earn/graph_backdrop.dart';
+
 import '../style.dart';
 import '../widgets/containers/common/custom_app_bar.dart';
 import '../widgets/containers/refer_and_earn/select_date.dart';
@@ -11,7 +13,8 @@ class ReferAndEarn extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     double effectiveContentWidth =
         size.width * (1 - 2 * MyStyle.horizontalPaddingRatio);
-    double selectDateHeightRatio = 0.1;
+    double selectDateHeightRatio = 0.125;
+    double graphBackdropHeightRatio = 0.15;
     SizedBox spacer = SizedBox(
       height: 0.025 * size.height,
     );
@@ -32,6 +35,16 @@ class ReferAndEarn extends StatelessWidget {
               SelectDate(
                 height: size.height * selectDateHeightRatio,
                 width: effectiveContentWidth,
+              ),
+              spacer,
+              Stack(
+                children: [
+                  GraphBackdrop(
+                    amounts: const ['300', '200', '100'],
+                    height: graphBackdropHeightRatio * size.height,
+                    width: effectiveContentWidth,
+                  )
+                ],
               )
             ],
           ),
