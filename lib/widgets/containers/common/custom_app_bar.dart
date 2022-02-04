@@ -18,10 +18,16 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(
-          Icons.keyboard_backspace_rounded,
-          color: MyStyle.greenish,
-          size: height * 0.5,
+        InkResponse(
+          splashColor: MyStyle.blackish,
+          radius: height * 0.5,
+          child: Ink(
+            child: Icon(
+              Icons.keyboard_backspace_rounded,
+              color: MyStyle.greenish,
+              size: height * 0.5,
+            ),
+          ),
         ),
         const Spacer(
           flex: 1,

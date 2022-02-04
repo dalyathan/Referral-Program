@@ -1,19 +1,26 @@
+import '../../../util/data/DummyGraphData.dart';
 import 'package:flutter/material.dart';
 
 import '../../../style.dart';
 
-class SelectDate extends StatefulWidget {
+class SelectPeridoContainer extends StatefulWidget {
   final double height;
   final double width;
-  const SelectDate({Key? key, required this.height, required this.width})
+  final String period;
+  final Function(String) selectPeriod;
+  const SelectPeridoContainer(
+      {Key? key,
+      required this.height,
+      required this.width,
+      required this.period,
+      required this.selectPeriod})
       : super(key: key);
 
   @override
-  State<SelectDate> createState() => _SelectDateState();
+  State<SelectPeridoContainer> createState() => _SelectPeridoContainerState();
 }
 
-class _SelectDateState extends State<SelectDate> {
-  String listValue = 'Today';
+class _SelectPeridoContainerState extends State<SelectPeridoContainer> {
   @override
   Widget build(BuildContext context) {
     double dropdownButtonWidth = widget.width * 0.5;
@@ -39,12 +46,8 @@ class _SelectDateState extends State<SelectDate> {
             fit: BoxFit.fitWidth,
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
-                value: listValue,
-                items: <String>[
-                  'Today',
-                  'Last Week',
-                  'This Month',
-                ].map((String value) {
+                value: widget.period,
+                items: DummyGraphDataUtil.periods.map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(
@@ -52,9 +55,7 @@ class _SelectDateState extends State<SelectDate> {
                     ),
                   );
                 }).toList(),
-                onChanged: (newValue) => setState(() {
-                  listValue = newValue!;
-                }),
+                onChanged: (newValue) => widget.selectPeriod(newValue!),
                 icon: Icon(
                   Icons.expand_more_outlined,
                   color: MyStyle.fadedBlackish,

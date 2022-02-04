@@ -3,21 +3,23 @@ import 'package:flutter/material.dart';
 
 import '../../../style.dart';
 
-class GraphBackdrop extends StatelessWidget {
+class BarGraphAxesContainer extends StatelessWidget {
   final Map<String, String> points;
   final List<String> yAxisPoints;
   final double width;
   final double height;
   final double xAxisHeightRatio;
   final double xAxisWidthRatio;
-  GraphBackdrop(
+  final double lineThickness;
+  const BarGraphAxesContainer(
       {Key? key,
       required this.points,
       required this.width,
       required this.height,
       required this.yAxisPoints,
       required this.xAxisHeightRatio,
-      required this.xAxisWidthRatio})
+      required this.xAxisWidthRatio,
+      required this.lineThickness})
       : super(key: key);
 
   @override
@@ -61,14 +63,14 @@ class GraphBackdrop extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Container(
-                      height: 1,
+                      height: lineThickness,
                       width: lineWidth,
                       color: MyStyle.fadedBlackish,
                     ),
                   ),
                 )
               : CustomPaint(
-                  painter: BrokenLinePainter(),
+                  painter: BrokenLinePainter(lineThickness),
                   size: Size(lineWidth, rowHeight),
                 )
         ],
@@ -78,29 +80,42 @@ class GraphBackdrop extends StatelessWidget {
 
   Widget drawXAxis(double xAxisHeight, double xAxisWidth) {
     List<String> xs = List<String>.from(points.keys);
-    double oneXWidth = xAxisWidth / xs.length;
-    double oneXHeight = xAxisHeight * 0.9;
-    return Row(
-      children: [
-        pointOnYAxis('', width - xAxisWidth, xAxisHeight),
-        Row(
-          children: xs
-              .map((e) => Container(
-                    width: oneXWidth,
-                    height: oneXHeight,
-                    color: e == 'Sat' ? Colors.black : Colors.transparent,
-                    child: FittedBox(
-                      fit: BoxFit.contain,
-                      child: Text(
-                        e,
-                        style: MyStyle.textStyle
-                            .copyWith(color: MyStyle.fadedBlackish),
+    double oneXWidth = (xAxisWidth / xs.length);
+    double oneXHeight = xAxisHeight;
+    return SizedBox(
+      height: xAxisHeight,
+      width: width,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          pointOnYAxis('', width - xAxisWidth, xAxisHeight),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: xs
+                .map((e) => SizedBox(
+                      width: oneXWidth,
+                      height: oneXHeight,
+                      child: Center(
+                        child: SizedBox(
+                          width: oneXWidth * 0.8,
+                          height: oneXHeight,
+                          child: FittedBox(
+                            fit: BoxFit.contain,
+                            child: Text(
+                              e,
+                              style: MyStyle.textStyle
+                                  .copyWith(color: MyStyle.fadedBlackish),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ))
-              .toList(),
-        )
-      ],
+                    ))
+                .toList(),
+          )
+        ],
+      ),
     );
   }
 

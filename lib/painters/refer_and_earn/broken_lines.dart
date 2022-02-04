@@ -2,11 +2,14 @@ import 'package:dribbble_mahmudul_hasan_manik_referral_program/style.dart';
 import 'package:flutter/material.dart';
 
 class BrokenLinePainter extends CustomPainter {
+  final double lineThickness;
+
+  BrokenLinePainter(this.lineThickness);
   @override
   void paint(Canvas canvas, Size size) {
     Paint brush = Paint()
       ..color = MyStyle.fadedBlackish
-      ..strokeWidth = 1;
+      ..strokeWidth = lineThickness;
     double breakBetweenLinesRatio = 0.045;
     double fractureLength = 0.035;
     Offset start = Offset(0, size.height * 0.5);
