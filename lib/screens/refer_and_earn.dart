@@ -1,3 +1,5 @@
+import 'package:dribbble_mahmudul_hasan_manik_referral_program/widgets/containers/refer_and_earn/bar_chart.dart';
+
 import '../widgets/containers/refer_and_earn/graph_backdrop.dart';
 
 import '../style.dart';
@@ -14,7 +16,7 @@ class ReferAndEarn extends StatelessWidget {
     double effectiveContentWidth =
         size.width * (1 - 2 * MyStyle.horizontalPaddingRatio);
     double selectDateHeightRatio = 0.125;
-    double graphBackdropHeightRatio = 0.15;
+    double graphHeightRatio = 0.2;
     SizedBox spacer = SizedBox(
       height: 0.025 * size.height,
     );
@@ -37,15 +39,18 @@ class ReferAndEarn extends StatelessWidget {
                 width: effectiveContentWidth,
               ),
               spacer,
-              Stack(
-                children: [
-                  GraphBackdrop(
-                    amounts: const ['300', '200', '100'],
-                    height: graphBackdropHeightRatio * size.height,
-                    width: effectiveContentWidth,
-                  )
-                ],
-              )
+              BarChartContainer(
+                  width: effectiveContentWidth,
+                  height: size.height * graphHeightRatio,
+                  points: const {
+                    'Sat': '410',
+                    'Sun': '160',
+                    'Mon': '700',
+                    'Tue': '160',
+                    'Wed': '210',
+                    'Thu': '160',
+                    'Fri': '145'
+                  })
             ],
           ),
         ),
