@@ -19,7 +19,7 @@ class CustomAppBar extends StatelessWidget {
     return Row(
       children: [
         InkResponse(
-          splashColor: MyStyle.blackish,
+          onTap: () => Navigator.pop(context),
           radius: height * 0.5,
           child: Ink(
             child: Icon(
@@ -50,7 +50,7 @@ class CustomAppBar extends StatelessWidget {
           child: FittedBox(
             fit: BoxFit.fitWidth,
             child: Text(
-              'Refer & Earn',
+              title,
               style: MyStyle.textStyle.copyWith(
                   color: MyStyle.blackish, fontWeight: FontWeight.bold),
             ),
