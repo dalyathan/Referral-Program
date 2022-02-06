@@ -1,3 +1,6 @@
+import 'package:dribbble_mahmudul_hasan_manik_referral_program/screens/terms.dart';
+
+import '../../../screens/withdraw.dart';
 import 'package:dribbble_mahmudul_hasan_manik_referral_program/style.dart';
 import 'package:flutter/material.dart';
 
@@ -46,27 +49,33 @@ class CustomAppBar extends StatelessWidget {
           flex: 4,
         ),
         SizedBox(
-          width: width * 0.4,
-          child: FittedBox(
-            fit: BoxFit.fitWidth,
-            child: Text(
-              title,
-              style: MyStyle.textStyle.copyWith(
-                  color: MyStyle.blackish, fontWeight: FontWeight.bold),
-            ),
+          width: width * 0.35,
+          child: Text(
+            title,
+            style: MyStyle.textStyle.copyWith(
+                color: MyStyle.blackish,
+                fontWeight: FontWeight.bold,
+                fontSize: 17.5),
           ),
         ),
         const Spacer(
           flex: 4,
         ),
         nextPage != null
-            ? SizedBox(
-                width: width * 0.1,
-                child: FittedBox(
-                  fit: BoxFit.fitWidth,
-                  child: Text(
-                    nextPage!,
-                    style: MyStyle.textStyle.copyWith(color: MyStyle.greenish),
+            ? InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TermsScreen()),
+                ),
+                child: SizedBox(
+                  width: width * 0.15,
+                  child: FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      nextPage!,
+                      style:
+                          MyStyle.textStyle.copyWith(color: MyStyle.greenish),
+                    ),
                   ),
                 ),
               )

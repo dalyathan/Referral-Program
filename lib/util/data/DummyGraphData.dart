@@ -1,5 +1,5 @@
 // ignore_for_file: file_names
-class DummyGraphDataUtil {
+class DummyGraphData {
   static List<String> periods = [
     'Today',
     'Last Week',

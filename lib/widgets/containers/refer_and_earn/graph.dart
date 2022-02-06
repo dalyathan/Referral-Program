@@ -17,7 +17,7 @@ class GraphContainer extends StatefulWidget {
 class _GraphContainerState extends State<GraphContainer> {
   double barGraphHeightRatio = 0.6;
   double selectDateHeightRatio = 0.33;
-  String currentPeriod = DummyGraphDataUtil.periods[0];
+  String currentPeriod = DummyGraphData.periods[0];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,7 +37,7 @@ class _GraphContainerState extends State<GraphContainer> {
         BarGraphContainer(
             width: widget.width,
             height: widget.height * barGraphHeightRatio,
-            points: DummyGraphDataUtil.get(currentPeriod))
+            points: DummyGraphData.get(currentPeriod))
       ],
     );
   }

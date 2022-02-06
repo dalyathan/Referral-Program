@@ -16,9 +16,12 @@ class ContactsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double clipRadiusRatio = 0.1;
-    double textWidthRatio = 0.2;
+    double clipRadiusRatio = 0.3;
+    double textWidthRatio = 0.3;
     Color inviteButtonBackgroundColor = const Color.fromRGBO(244, 244, 246, 1);
+    double inviteButtonBorderRadiusRatio = 0.3;
+    double inviteButtonHeight = height * 0.6;
+    double inviteButtonWidth = width * 0.275;
     return Row(
       children: [
         ClipRRect(
@@ -28,6 +31,7 @@ class ContactsContainer extends StatelessWidget {
               width: height,
               child: Image.network(person.photoLink)),
         ),
+        const Spacer(),
         Column(
           children: [
             SizedBox(
@@ -48,7 +52,31 @@ class ContactsContainer extends StatelessWidget {
             )
           ],
         ),
-        Container()
+        const Spacer(
+          flex: 7,
+        ),
+        Container(
+          width: inviteButtonWidth,
+          height: inviteButtonHeight,
+          decoration: BoxDecoration(
+              color: inviteButtonBackgroundColor,
+              borderRadius: BorderRadius.circular(
+                  inviteButtonHeight * inviteButtonBorderRadiusRatio)),
+          child: Center(
+            child: SizedBox(
+              height: inviteButtonHeight * 0.6,
+              width: inviteButtonWidth * 0.6,
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: Text(
+                  'Invite',
+                  style:
+                      MyStyle.textStyle.copyWith(color: MyStyle.fadedBlackish),
+                ),
+              ),
+            ),
+          ),
+        )
       ],
     );
   }

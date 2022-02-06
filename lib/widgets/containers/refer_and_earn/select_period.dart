@@ -47,7 +47,7 @@ class _SelectPeridoContainerState extends State<SelectPeridoContainer> {
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
                 value: widget.period,
-                items: DummyGraphDataUtil.periods.map((String value) {
+                items: DummyGraphData.periods.map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(

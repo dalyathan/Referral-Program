@@ -1,9 +1,11 @@
-import 'package:dribbble_mahmudul_hasan_manik_referral_program/widgets/containers/refer_and_earn/share.dart';
-import 'package:dribbble_mahmudul_hasan_manik_referral_program/widgets/containers/refer_and_earn/share_via.dart';
+import '../../../widgets/containers/common/horizontal_rule.dart';
+import '../../../widgets/containers/refer_and_earn/contacts_list.dart';
+import '../../../widgets/containers/refer_and_earn/share.dart';
+import '../../../widgets/containers/refer_and_earn/share_via.dart';
 
 import '../widgets/containers/refer_and_earn/copy_url.dart';
-import 'package:dribbble_mahmudul_hasan_manik_referral_program/widgets/containers/refer_and_earn/graph.dart';
-import 'package:dribbble_mahmudul_hasan_manik_referral_program/widgets/containers/refer_and_earn/withdraw_button.dart';
+import '../../../widgets/containers/refer_and_earn/graph.dart';
+import '../../../widgets/containers/refer_and_earn/withdraw_button.dart';
 
 import '../style.dart';
 import '../widgets/containers/common/custom_app_bar.dart';
@@ -40,6 +42,7 @@ class ReferAndEarnScreen extends StatelessWidget {
                 CustomAppBar(
                     title: "Refer & Earn",
                     height: size.height * MyStyle.appBarHeightRatio,
+                    nextPage: "Terms",
                     width: effectiveContentWidth),
                 smallerSpacer,
                 GraphContainer(
@@ -51,7 +54,9 @@ class ReferAndEarnScreen extends StatelessWidget {
                   width: effectiveContentWidth,
                 ),
                 largerSpacer,
-                hr(effectiveContentWidth),
+                HorizontalRule(
+                  width: effectiveContentWidth,
+                ),
                 largerSpacer,
                 CopyUrlContainer(
                   height: size.height * copyUrlHeightRatio,
@@ -64,8 +69,13 @@ class ReferAndEarnScreen extends StatelessWidget {
                   width: effectiveContentWidth,
                 ),
                 largerSpacer,
-                hr(effectiveContentWidth),
-                largerSpacer
+                HorizontalRule(
+                  width: effectiveContentWidth,
+                ),
+                largerSpacer,
+                ContactsListContainer(
+                  width: effectiveContentWidth,
+                )
               ],
             ),
           ),
@@ -73,10 +83,4 @@ class ReferAndEarnScreen extends StatelessWidget {
       ),
     );
   }
-
-  Widget hr(double width) => Container(
-        width: width,
-        color: MyStyle.fadedBlackish,
-        height: 0.25,
-      );
 }

@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 import '../../model/person.dart';
 
-class DummyContactsList {
+class DummyContactsData {
   static const String namekey = "name";
   static const String photoKey = "photo";
   static const String numberkey = "number";
