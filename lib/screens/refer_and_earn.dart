@@ -22,7 +22,6 @@ class ReferAndEarnScreen extends StatelessWidget {
     double graphHeightRatio = 0.375;
     double withdrawButtonHeightRatio = 0.075;
     double copyUrlHeightRatio = 0.1;
-    double shareHeightRatio = 0.3;
     SizedBox smallerSpacer = SizedBox(
       height: 0.025 * size.height,
     );

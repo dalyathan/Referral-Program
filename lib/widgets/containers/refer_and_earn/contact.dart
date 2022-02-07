@@ -16,67 +16,81 @@ class ContactsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double clipRadiusRatio = 0.3;
+    double clipRadiusRatio = 0.2;
     double textWidthRatio = 0.3;
     Color inviteButtonBackgroundColor = const Color.fromRGBO(244, 244, 246, 1);
     double inviteButtonBorderRadiusRatio = 0.3;
     double inviteButtonHeight = height * 0.6;
     double inviteButtonWidth = width * 0.275;
-    return Row(
+    double gapHeightRatio = 0.2;
+    double gapHeight = height * gapHeightRatio;
+    double imageSize = height * (1 - 2 * gapHeightRatio);
+    SizedBox margin = SizedBox(
+      height: gapHeight,
+    );
+    return Column(
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(height * clipRadiusRatio),
-          child: SizedBox(
-              height: height,
-              width: height,
-              child: Image.network(person.photoLink)),
-        ),
-        const Spacer(),
-        Column(
+        margin,
+        Row(
           children: [
-            SizedBox(
-              width: width * textWidthRatio,
-              child: FittedBox(
-                fit: BoxFit.fitWidth,
-                child: Text(person.name,
-                    style: MyStyle.textStyle.copyWith(color: MyStyle.blackish)),
-              ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(imageSize * clipRadiusRatio),
+              child: SizedBox(
+                  height: imageSize,
+                  width: imageSize,
+                  child: Image.network(person.photoLink)),
             ),
-            SizedBox(
-              width: width * textWidthRatio,
-              child: FittedBox(
-                fit: BoxFit.fitWidth,
-                child: Text(person.number,
-                    style: MyStyle.textStyle.copyWith(color: MyStyle.blackish)),
+            const Spacer(),
+            Column(
+              children: [
+                SizedBox(
+                  width: width * textWidthRatio,
+                  child: FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(person.name,
+                        style: MyStyle.textStyle
+                            .copyWith(color: MyStyle.blackish)),
+                  ),
+                ),
+                SizedBox(
+                  width: width * textWidthRatio,
+                  child: FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(person.number,
+                        style: MyStyle.textStyle
+                            .copyWith(color: MyStyle.blackish)),
+                  ),
+                )
+              ],
+            ),
+            const Spacer(
+              flex: 7,
+            ),
+            Container(
+              width: inviteButtonWidth,
+              height: inviteButtonHeight,
+              decoration: BoxDecoration(
+                  color: inviteButtonBackgroundColor,
+                  borderRadius: BorderRadius.circular(
+                      inviteButtonHeight * inviteButtonBorderRadiusRatio)),
+              child: Center(
+                child: SizedBox(
+                  height: inviteButtonHeight * 0.6,
+                  width: inviteButtonWidth * 0.6,
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      'Invite',
+                      style: MyStyle.textStyle
+                          .copyWith(color: MyStyle.fadedBlackish),
+                    ),
+                  ),
+                ),
               ),
             )
           ],
         ),
-        const Spacer(
-          flex: 7,
-        ),
-        Container(
-          width: inviteButtonWidth,
-          height: inviteButtonHeight,
-          decoration: BoxDecoration(
-              color: inviteButtonBackgroundColor,
-              borderRadius: BorderRadius.circular(
-                  inviteButtonHeight * inviteButtonBorderRadiusRatio)),
-          child: Center(
-            child: SizedBox(
-              height: inviteButtonHeight * 0.6,
-              width: inviteButtonWidth * 0.6,
-              child: FittedBox(
-                fit: BoxFit.contain,
-                child: Text(
-                  'Invite',
-                  style:
-                      MyStyle.textStyle.copyWith(color: MyStyle.fadedBlackish),
-                ),
-              ),
-            ),
-          ),
-        )
+        margin,
       ],
     );
   }

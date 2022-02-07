@@ -14,12 +14,6 @@ class ContactsListContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double rowHeight = size.height * 0.125;
-    double gapHeightRatio = 0.2;
-    double gapHeight = rowHeight * gapHeightRatio;
-    double contentHeight = rowHeight * (1 - 2 * gapHeightRatio);
-    SizedBox margin = SizedBox(
-      height: gapHeight,
-    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -37,17 +31,14 @@ class ContactsListContainer extends StatelessWidget {
         ...DummyContactsData.contacts
             .sublist(0, DummyContactsData.contacts.length - 1)
             .map((person) => Column(children: [
-                  margin,
                   ContactsContainer(
-                      width: width, height: contentHeight, person: person),
-                  margin,
+                      width: width, height: rowHeight, person: person),
                   HorizontalRule(width: width)
                 ]))
             .toList(),
-        margin,
         ContactsContainer(
             width: width,
-            height: contentHeight,
+            height: rowHeight,
             person: DummyContactsData.contacts.last)
       ],
     );

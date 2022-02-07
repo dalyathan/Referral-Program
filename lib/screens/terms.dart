@@ -1,3 +1,5 @@
+import 'package:dribbble_mahmudul_hasan_manik_referral_program/widgets/containers/terms/terms_list.dart';
+
 import '../widgets/containers/common/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +26,7 @@ class TermsScreen extends StatelessWidget {
                   title: "Terms",
                   height: size.height * MyStyle.appBarHeightRatio,
                   width: effectiveContentWidth),
+              const TermsListContainer(),
             ],
           ),
         ),
