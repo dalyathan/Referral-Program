@@ -26,7 +26,7 @@ class TermsScreen extends StatelessWidget {
                   title: "Terms",
                   height: size.height * MyStyle.appBarHeightRatio,
                   width: effectiveContentWidth),
-              const TermsListContainer(),
+              TermsListContainer(width: effectiveContentWidth),
             ],
           ),
         ),

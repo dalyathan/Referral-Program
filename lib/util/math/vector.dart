@@ -1,6 +1,8 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 class VectorUtil {
   final Size frame;
 
@@ -35,6 +37,20 @@ class VectorUtil {
             cartesianOffset.dy * cos(counterClockwiseInRadians));
     return toDartianCoordinate(cartesianValue);
   }
+
+  Path rotatePath(Path oldPath, double counterClockwiseInRadians) {
+    Path cartesianPath = toCartesianPath(oldPath);
+    Path rotatedCartesianPath = cartesianPath
+        .transform(Matrix4.rotationZ(counterClockwiseInRadians).storage);
+    Path dartianPath = toDartianPath(rotatedCartesianPath);
+    return dartianPath;
+  }
+
+  Path toCartesianPath(Path dartianPath) =>
+      dartianPath.shift(Offset(-frame.width * 0.5, -frame.height * 0.5));
+
+  Path toDartianPath(Path cartesianPath) =>
+      cartesianPath.shift(Offset(frame.width * 0.5, frame.height * 0.5));
 
   List<Offset> rotatePolygon(
           List<Offset> dartianOffsets, double counterClockwiseInRadians) =>
