@@ -19,7 +19,7 @@ class SingleTermContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double iconSize = height * 0.6;
+    double iconSize = height * 0.45;
     double textWidth = (width - iconSize) * 0.9;
     icon.height = iconSize;
     Size size = MediaQuery.of(context).size;
@@ -28,7 +28,7 @@ class SingleTermContainer extends StatelessWidget {
       width: width,
       //color: Colors.amber,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Spacer(),
           icon,
@@ -38,11 +38,10 @@ class SingleTermContainer extends StatelessWidget {
             maxHeight: height,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Spacer(flex: 2),
                 Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.topLeft,
                   child: SizedBox(
                     height: height * 0.3,
                     child: FittedBox(
@@ -66,7 +65,6 @@ class SingleTermContainer extends StatelessWidget {
                         .copyWith(color: MyStyle.fadedBlackish),
                   ),
                 ),
-                const Spacer(flex: 2),
               ],
             ),
           )
