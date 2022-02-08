@@ -43,7 +43,8 @@ class SingleTermContainer extends StatelessWidget {
                 Align(
                   alignment: Alignment.topLeft,
                   child: LimitedBox(
-                    maxHeight: textWidth,
+                    maxWidth: textWidth,
+                    maxHeight: height * 0.35,
                     child: Text(
                       term.title,
                       style: MyStyle.textStyle.copyWith(

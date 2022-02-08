@@ -25,18 +25,34 @@ class AccountIconPainter extends CustomPainter {
   }
 
   drawActual() {
-    double paddingRatio = 0.1;
+    double paddingRatio = 0.075;
     double padding = size.height * paddingRatio;
     Offset center =
         Offset(size.width * 0.5 - padding, size.height * 0.5 + padding);
+    double width = size.width - padding - borderRadius;
+    double height = size.height - padding - borderRadius;
     canvas.drawRRect(
         RRect.fromRectAndRadius(
-            Rect.fromCenter(
-                center: center,
-                width: size.width - padding - borderRadius,
-                height: size.height - padding - borderRadius),
+            Rect.fromCenter(center: center, width: width, height: height),
             Radius.circular(borderRadius)),
         brush);
+    canvas.drawLine(Offset(0, size.height - 3 * height / 4),
+        Offset(width, size.height - 3 * height / 4), brush);
+    double smallerDashesOffset = 0.2;
+    double largerDashWidthRatio = 0.15;
+    double middleDashWidthRatio = 0.1;
+    double smallerDashWidthRatio = 0.1;
+    Offset A =
+        Offset(size.width * smallerDashesOffset, size.height - height * 0.5);
+    Offset B =
+        Offset(size.width * (smallerDashesOffset + largerDashWidthRatio), A.dy);
+    canvas.drawLine(A, B, brush);
+    Offset C = Offset(B.dx + size.width * smallerDashesOffset * 0.5, A.dy);
+    Offset D = Offset(C.dx + size.width * middleDashWidthRatio, A.dy);
+    canvas.drawLine(C, D, brush);
+    Offset E = Offset(A.dx, A.dy + height / 4);
+    Offset F = Offset(E.dx + size.width * smallerDashWidthRatio, E.dy);
+    canvas.drawLine(E, F, brush);
   }
 
   drawShadow() {
@@ -61,5 +77,5 @@ class AccountIconPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

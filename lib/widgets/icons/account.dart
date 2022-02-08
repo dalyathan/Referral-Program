@@ -8,13 +8,10 @@ class AccountIcon extends SuperTypeIcon {
   @override
   Widget build(BuildContext context) {
     double aspectRatio = 1.33;
-    double width = height * aspectRatio;
-    return Container(
-      color: Colors.amber,
-      child: CustomPaint(
-        painter: AccountIconPainter(),
-        size: Size(width, height),
-      ),
+    double width = height / aspectRatio;
+    return CustomPaint(
+      painter: AccountIconPainter(),
+      size: Size(height, width),
     );
   }
 }

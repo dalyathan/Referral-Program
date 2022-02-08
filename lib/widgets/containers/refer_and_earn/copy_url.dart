@@ -4,7 +4,14 @@ import 'package:flutter/material.dart';
 class CopyUrlContainer extends StatelessWidget {
   final double width;
   final double height;
-  const CopyUrlContainer({Key? key, required this.width, required this.height})
+  final String buttonText;
+  final String showText;
+  const CopyUrlContainer(
+      {Key? key,
+      required this.width,
+      required this.height,
+      required this.buttonText,
+      required this.showText})
       : super(key: key);
 
   @override
@@ -13,7 +20,6 @@ class CopyUrlContainer extends StatelessWidget {
     Color copyButtonBackgroundColor = const Color.fromRGBO(228, 227, 230, 1);
     double borderRadiusRatio = 0.2;
     double horizontalOffsetRatio = 0.1;
-    String url = 'https://bit.ly/3qnrUr7';
     double copyButtonWidthRatio = 0.3;
     double copyButtonWidth = width * copyButtonWidthRatio;
     return Stack(
@@ -29,7 +35,7 @@ class CopyUrlContainer extends StatelessWidget {
             padding: EdgeInsets.only(left: width * horizontalOffsetRatio),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Text(url,
+              child: Text(showText,
                   style: MyStyle.textStyle
                       .copyWith(color: MyStyle.fadedBlackish, fontSize: 12.5)),
             ),
@@ -47,7 +53,7 @@ class CopyUrlContainer extends StatelessWidget {
               width: copyButtonWidth * 0.5,
               child: FittedBox(
                 child: Text(
-                  'Copy',
+                  buttonText,
                   style: MyStyle.textStyle.copyWith(color: MyStyle.blackish),
                 ),
               ),

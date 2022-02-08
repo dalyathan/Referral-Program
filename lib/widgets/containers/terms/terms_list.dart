@@ -1,6 +1,7 @@
 import 'package:dribbble_mahmudul_hasan_manik_referral_program/util/data/DummyTermsData.dart';
 import 'package:dribbble_mahmudul_hasan_manik_referral_program/widgets/icons/coins.dart';
 import 'package:dribbble_mahmudul_hasan_manik_referral_program/widgets/icons/share.dart';
+import 'package:dribbble_mahmudul_hasan_manik_referral_program/widgets/icons/website.dart';
 import 'package:flutter/material.dart';
 
 import '../../icons/account.dart';
@@ -35,6 +36,12 @@ class TermsListContainer extends StatelessWidget {
           height: height,
           icon: AccountIcon(),
           term: DummyTermsData.terms[2],
+          width: width,
+        ),
+        SingleTermContainer(
+          height: height,
+          icon: WebsiteIcon(),
+          term: DummyTermsData.terms[3],
           width: width,
         )
       ],

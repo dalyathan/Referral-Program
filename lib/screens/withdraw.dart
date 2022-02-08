@@ -1,3 +1,5 @@
+import '/widgets/containers/withdraw/balance.dart';
+
 import '../../widgets/containers/common/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +13,13 @@ class WithdrawScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     double effectiveContentWidth =
         size.width * (1 - 2 * MyStyle.horizontalPaddingRatio);
+    double balanceHeightRatio = 0.075;
+    SizedBox smallerSpacer = SizedBox(
+      height: 0.025 * size.height,
+    );
+    SizedBox largerSpacer = SizedBox(
+      height: 0.045 * size.height,
+    );
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -24,6 +33,11 @@ class WithdrawScreen extends StatelessWidget {
                   title: "Withdraw",
                   height: size.height * MyStyle.appBarHeightRatio,
                   width: effectiveContentWidth),
+              largerSpacer,
+              BalanceContainer(
+                height: size.height * balanceHeightRatio,
+                width: effectiveContentWidth,
+              )
             ],
           ),
         ),

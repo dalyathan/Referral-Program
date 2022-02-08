@@ -60,6 +60,8 @@ class ReferAndEarnScreen extends StatelessWidget {
                 CopyUrlContainer(
                   height: size.height * copyUrlHeightRatio,
                   width: effectiveContentWidth,
+                  buttonText: 'Copy',
+                  showText: 'https://bit.ly/3qnrUr7',
                 ),
                 smallerSpacer,
                 ShareViaContainer(width: effectiveContentWidth),
