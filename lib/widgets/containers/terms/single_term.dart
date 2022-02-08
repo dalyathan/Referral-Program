@@ -26,7 +26,7 @@ class SingleTermContainer extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      //color: Colors.amber,
+      //color: Colors.red,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,16 +42,14 @@ class SingleTermContainer extends StatelessWidget {
               children: [
                 Align(
                   alignment: Alignment.topLeft,
-                  child: SizedBox(
-                    height: height * 0.3,
-                    child: FittedBox(
-                      fit: BoxFit.fitHeight,
-                      child: Text(
-                        term.title,
-                        style: MyStyle.textStyle.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: MyStyle.blackish),
-                      ),
+                  child: LimitedBox(
+                    maxHeight: textWidth,
+                    child: Text(
+                      term.title,
+                      style: MyStyle.textStyle.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: MyStyle.blackish,
+                          fontSize: 20),
                     ),
                   ),
                 ),

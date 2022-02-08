@@ -3,6 +3,7 @@ import 'package:dribbble_mahmudul_hasan_manik_referral_program/widgets/icons/coi
 import 'package:dribbble_mahmudul_hasan_manik_referral_program/widgets/icons/share.dart';
 import 'package:flutter/material.dart';
 
+import '../../icons/account.dart';
 import 'single_term.dart';
 
 class TermsListContainer extends StatelessWidget {
@@ -28,6 +29,12 @@ class TermsListContainer extends StatelessWidget {
           height: height,
           icon: CoinsIcon(),
           term: DummyTermsData.terms[1],
+          width: width,
+        ),
+        SingleTermContainer(
+          height: height,
+          icon: AccountIcon(),
+          term: DummyTermsData.terms[2],
           width: width,
         )
       ],
