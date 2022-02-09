@@ -1,3 +1,4 @@
+import '../widgets/containers/withdraw/amount.dart';
 import '/widgets/containers/withdraw/balance.dart';
 
 import '../../widgets/containers/common/custom_app_bar.dart';
@@ -14,6 +15,7 @@ class WithdrawScreen extends StatelessWidget {
     double effectiveContentWidth =
         size.width * (1 - 2 * MyStyle.horizontalPaddingRatio);
     double balanceHeightRatio = 0.075;
+    double withdrawAmountHeightRatio = 0.1;
     SizedBox smallerSpacer = SizedBox(
       height: 0.025 * size.height,
     );
@@ -36,6 +38,11 @@ class WithdrawScreen extends StatelessWidget {
               largerSpacer,
               BalanceContainer(
                 height: size.height * balanceHeightRatio,
+                width: effectiveContentWidth,
+              ),
+              largerSpacer,
+              AmountContainer(
+                height: size.height * withdrawAmountHeightRatio,
                 width: effectiveContentWidth,
               )
             ],

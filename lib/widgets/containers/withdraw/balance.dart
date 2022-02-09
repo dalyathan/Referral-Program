@@ -22,17 +22,30 @@ class BalanceContainer extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'Balance',
-              style: MyStyle.textStyle
-                  .copyWith(color: MyStyle.fadedBlackish, fontSize: 20),
+            SizedBox(
+              width: width * 0.2,
+              child: FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Text(
+                  'Balance',
+                  style: MyStyle.textStyle.copyWith(
+                      color: const Color.fromRGBO(163, 210, 206, 1),
+                      fontSize: 20),
+                ),
+              ),
             ),
-            Text(
-              '\$2648.00',
-              style: MyStyle.textStyle.copyWith(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
+            SizedBox(
+              width: width * 0.35,
+              child: FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Text(
+                  '\$2648.00',
+                  style: MyStyle.textStyle.copyWith(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
             )
           ],
         ),
