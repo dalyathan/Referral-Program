@@ -15,19 +15,21 @@ class TermsScreen extends StatelessWidget {
         size.width * (1 - 2 * MyStyle.horizontalPaddingRatio);
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.only(
-              left: size.width * MyStyle.horizontalPaddingRatio,
-              right: size.width * MyStyle.horizontalPaddingRatio,
-              top: size.height * MyStyle.topPaddingRatio),
-          child: Column(
-            children: [
-              CustomAppBar(
-                  title: "Terms",
-                  height: size.height * MyStyle.appBarHeightRatio,
-                  width: effectiveContentWidth),
-              TermsListContainer(width: effectiveContentWidth),
-            ],
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(
+                left: size.width * MyStyle.horizontalPaddingRatio,
+                right: size.width * MyStyle.horizontalPaddingRatio,
+                top: size.height * MyStyle.topPaddingRatio),
+            child: Column(
+              children: [
+                CustomAppBar(
+                    title: "Terms",
+                    height: size.height * MyStyle.appBarHeightRatio,
+                    width: effectiveContentWidth),
+                TermsListContainer(width: effectiveContentWidth),
+              ],
+            ),
           ),
         ),
       ),

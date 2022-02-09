@@ -18,26 +18,36 @@ class TermsListContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double height = size.height * 0.1;
+    SizedBox largerSpacer = SizedBox(
+      height: 0.045 * size.height,
+    );
+    SizedBox smallerSpacer = SizedBox(
+      height: 0.025 * size.height,
+    );
     return Column(
       children: [
+        smallerSpacer,
         SingleTermContainer(
           height: height,
           icon: ShareIcon(),
           term: DummyTermsData.terms[0],
           width: width,
         ),
+        largerSpacer,
         SingleTermContainer(
           height: height,
           icon: CoinsIcon(),
           term: DummyTermsData.terms[1],
           width: width,
         ),
+        largerSpacer,
         SingleTermContainer(
           height: height,
           icon: AccountIcon(),
           term: DummyTermsData.terms[2],
           width: width,
         ),
+        largerSpacer,
         SingleTermContainer(
           height: height,
           icon: WebsiteIcon(),

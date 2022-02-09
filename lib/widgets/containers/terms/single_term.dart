@@ -50,7 +50,7 @@ class SingleTermContainer extends StatelessWidget {
                       style: MyStyle.textStyle.copyWith(
                           fontWeight: FontWeight.bold,
                           color: MyStyle.blackish,
-                          fontSize: 20),
+                          fontSize: 15),
                     ),
                   ),
                 ),
@@ -61,7 +61,7 @@ class SingleTermContainer extends StatelessWidget {
                   child: Text(
                     term.description,
                     style: MyStyle.textStyle
-                        .copyWith(color: MyStyle.fadedBlackish),
+                        .copyWith(color: MyStyle.fadedBlackish, fontSize: 12),
                   ),
                 ),
               ],

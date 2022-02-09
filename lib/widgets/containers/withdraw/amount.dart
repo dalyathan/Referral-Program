@@ -20,9 +20,16 @@ class AmountContainer extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Amount",
-          style: MyStyle.textStyle.copyWith(fontWeight: FontWeight.bold),
+        SizedBox(
+          width: width * 0.2,
+          child: FittedBox(
+            fit: BoxFit.fitWidth,
+            child: Text(
+              "Amount",
+              style: MyStyle.textStyle.copyWith(
+                  fontWeight: FontWeight.bold, color: MyStyle.blackish),
+            ),
+          ),
         ),
         SizedBox(
           height: height * 0.2,
